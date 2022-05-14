@@ -14,6 +14,8 @@ export default function ModalMovie(props) {
                     <Modal.Title>{props.chosenM.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                <img src={`https://image.tmdb.org/t/p/w400/${props.chosenM.poster_path}`} alt="Movie poster" />
+                <br></br>
                     {props.chosenM.overview}
                     {/* <Form>
                       <Form.Group
