@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 // import Cards from './Cards';
 // import "./style.css";
@@ -6,7 +6,6 @@ import MovieList from "./MovieList";
 
 export default function Home() {
 
-    
   const [movies, setMovie] = useState([]);
 
   async function getMovie() {
@@ -22,13 +21,10 @@ export default function Home() {
   return (
     <>
       <h1>Movie</h1>
-    
-{
-  
+  {
     (movies.length > 0) && <MovieList movies={movies} />
-}
-
-
+  }
+  
 </>
 )
 }

@@ -9,8 +9,10 @@ export default function MovieList(props) {
       {props.movies.map((element) => {
         return (
           <>
-         
+          <div>
             <Movie movies={element} ></Movie>
+          </div>
+            
           </>
         );
       })}

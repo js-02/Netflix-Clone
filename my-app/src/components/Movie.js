@@ -1,34 +1,39 @@
+import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import Modal from 'react-bootstrap/Modal';
+
 import ModalMovie from "./ModalMovie";
 
+
 export default function Movie(element) {
-//   console.log(element);
 const [show, setShow] = useState(false);
 const [chosenM, setChosenM] = useState();
 
 const handleClose = () => setShow(false);
 const handleShow = (movies) => {
-    setChosenM(movies);
+    setChosenM( movies);
     setShow(true);}
-  
    
   return (
     <>
-    {/* card must be hereeeeeeeeeee */}
-     {/* {console.log(element.movies.poster_path)} */}
-    <><p>title : {element.movies.title}</p>
-    <img src={"https://image.tmdb.org/t/p/w500"+element.movies.poster_path} ></img>
-      <p>overview : {element.movies.overview}</p>
-      <p>release_date : {element.movies.release_date}</p>
-      <p>====================================================</p></>
-     
-      {
-            
-                chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} />
-            }
-             {/* {console.log("chosenM="+chosenM)} */}
-    </>
+<Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${element.movies.poster_path}`} />
+   <Card.Body>
+    <Card.Title>{element.movies.title || ` sorry not found Titel `}</Card.Title>
+    <Card.Text>
+     {element.movies.overview}
+    </Card.Text>
+    <Card.Text>
+     {element.movies.release_date || `No Date`}
+    </Card.Text>
+    <Button variant="primary" onClick= {handleShow}>Show Movie</Button>
+  </Card.Body>
+</Card>
+        {
+          chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} />
+        }
+           
+     </>
   );
 }
