@@ -40,7 +40,6 @@ export default function ModalMovie(props) {
         console.log("addedMovie", addedMovie);
     }
 
-
     return (
         <>
             <Modal show={props.show} onHide={props.handleClose}>
@@ -67,6 +66,7 @@ export default function ModalMovie(props) {
                             Add to favorites
                         </Button>
                     </Form>
+
                 </Modal.Body>
                 <Modal.Footer style={{ backgroundColor: '#7F8487' }}>
                     <Button variant="secondary" onClick={props.handleClose}>
