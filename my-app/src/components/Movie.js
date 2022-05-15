@@ -8,21 +8,21 @@ import ModalMovie from "./ModalMovie";
 
 export default function Movie(element) {
 const [show, setShow] = useState(false);
-const [chosenM, setChosenM] = useState();
+const [chosenM, setChosenM] = useState({});
 
 const handleClose = () => setShow(false);
 const handleShow = () => {
     setChosenM( element.movies);
-    setShow(true);
-    console.log("chosen="+chosenM)
-  }
+
+    setShow(true);}
+
    
   return (
     <>
 <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${element.movies.poster_path}`} />
    <Card.Body>
-    <Card.Title>{element.movies.title || ` sorry not found Titel `}</Card.Title>
+    <Card.Title>{element.movies.title || ` Sorry not found Titel `}</Card.Title>
     <Card.Text>
      {element.movies.overview}
     </Card.Text>
@@ -32,6 +32,8 @@ const handleShow = () => {
     <Button variant="primary" onClick= {handleShow}>Show Movie</Button>
   </Card.Body>
 </Card>
+
+
         {
           // console.log("chosen"+element.chosenM)
           chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} />
