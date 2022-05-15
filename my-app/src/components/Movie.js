@@ -26,13 +26,13 @@ export default function Movie(element) {
           <Card.Text>
             {element.movies.release_date || `No Date`}
           </Card.Text>
-          <Button variant="primary" onClick={handleShow}>Show Movie</Button>
+          <Button variant="primary" onClick={() => handleShow(props.movie)}>Show Movie</Button>
         </Card.Body>
       </Card>
 
 
       {
-        chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} />
+        chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} updateMovie={element.updateMovie}/>
       }
 
     </>

@@ -16,7 +16,7 @@ export default function FavList() {
   }
 
   async function handleDelete(id) {
-      let url = `https://movie-js-02.herokuapp.com/deletefavMovie/${id}`;
+      let url = `https://movie-js-02.herokuapp.com/deletefavMovie/?id=${id}`;
       let response = await fetch(url, {
           method: 'DELETE',
       })

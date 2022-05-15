@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-// import { Button, Row, Container } from 'react-bootstrap';
 import MovieList from "./MovieList";
-import Cards from './Cards';
-import Navbar from "./Navbar";
-import data from "./data";
+// import Cards from './Cards';
+import Navbar from './Navbar';
+// import data from "./data";
 
 
 export default function Home() {
@@ -44,7 +43,7 @@ export default function Home() {
          
         }  */}
         
-        { (movies.length > 0) && <Cards movies={movies} updateMovie={updateMovie} />}
+        { (movies.length > 0) && <MovieList  movies={movies} updateMovie={updateMovie} />}
       </div>
     </>
   );

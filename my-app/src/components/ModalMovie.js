@@ -1,11 +1,8 @@
 
+import { useRef } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useRef } from 'react';
-
-
-
 
 export default function ModalMovie(props) {
     let commentRef = useRef();
@@ -19,17 +16,17 @@ export default function ModalMovie(props) {
 
     }
 
-    async function handleAddFav(e, recipe) {
+    async function handleAddFav(e, movie) {
         e.preventDefault();
 
-        let url = `https://movie-js-02.herokuapp.com/addFavMovie`;
-        // let data = {
-        //     title: recipe.title,
-        //     readyInMinutes: recipe.readyInMinutes,
-        //     summary: recipe.summary,
-        //     image: recipe.image,
-        //      comment: recipe.comment,
-        // }
+        let url = `https://movie-js-02.herokuapp.com/handelGet`;
+        let data = {
+            name: movie.title,
+            time: movie.release_date,
+            summary: movie.overview,
+            image: movie.poster_path,
+            comment: movie.comment
+          }
 
         let response = await fetch(url, {
             method: 'POST',
@@ -40,7 +37,7 @@ export default function ModalMovie(props) {
         })
 
         let addedMovie = await response.json();
-        console.log("addedRecipe", addedMovie);
+        console.log("addedMovie", addedMovie);
     }
 
 
@@ -59,7 +56,7 @@ export default function ModalMovie(props) {
                             <Form.Label>Comment</Form.Label>
                             <Form.Control ref={commentRef} type="text" placeholder="Entre you comment" />
                             <Form.Text className="text-muted">
-                                Add your own comment to make recipes unique
+                                Add your own comment to make movie unique
                             </Form.Text>
                         </Form.Group>
 
