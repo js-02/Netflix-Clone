@@ -1,8 +1,10 @@
-// import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-// import Cards from './Cards';
-// import "./style.css";
+// import { Button, Row, Container } from 'react-bootstrap';
 import MovieList from "./MovieList";
+import Cards from './Cards';
+import Navbar from "./Navbar";
+import data from "./data";
+
 
 export default function Home() {
 
@@ -14,17 +16,36 @@ export default function Home() {
     let movieInfo = await response.json();
     setMovie(movieInfo);
   }
+
+  function updateMovie(newMovie, id) {
+    let updatedMovie = movies.map((movie) => {
+        if (movie.id === id) {
+          movie.comment = newMovie.userComment;
+            return movie;
+        } else {
+            return movie;
+        }
+    })
+
+    setMovie(updatedMovie);
+
+}
   useEffect(() => {
     getMovie();
   }, []);
 
   return (
     <>
-      <h1>Movie</h1>
-  {
-    (movies.length > 0) && <MovieList movies={movies} />
-  }
-  
-</>
-)
+      <Navbar />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(18rem, 1fr))', backgroundColor: '#413F42' }}>
+        <h1>Movie</h1>
+        {/* {
+          (movies.length > 0) && <MovieList movies={movies} />
+         
+        }  */}
+        
+        { (movies.length > 0) && <Cards movies={movies} updateMovie={updateMovie} />}
+      </div>
+    </>
+  );
 }

@@ -1,7 +1,5 @@
-
 import Movie from "./Movie";
 // import ModalRecipe from "./Modal"
-
 export default function MovieList(props) {
 //   {console.log("prop"+props.movies.length)}
   return (
@@ -10,7 +8,7 @@ export default function MovieList(props) {
         return (
           <>
           <div>
-            <Movie movies={element} ></Movie>
+            <Movie movies={element} />
           </div>
             
           </>
