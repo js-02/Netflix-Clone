@@ -11,9 +11,11 @@ const [show, setShow] = useState(false);
 const [chosenM, setChosenM] = useState();
 
 const handleClose = () => setShow(false);
-const handleShow = (movies) => {
-    setChosenM( movies);
-    setShow(true);}
+const handleShow = () => {
+    setChosenM( element.movies);
+    setShow(true);
+    console.log("chosen="+chosenM)
+  }
    
   return (
     <>
@@ -31,6 +33,7 @@ const handleShow = (movies) => {
   </Card.Body>
 </Card>
         {
+          // console.log("chosen"+element.chosenM)
           chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} />
         }
            
