@@ -9,16 +9,16 @@ export default function ModalMovie(props) {
     function handleComment(e) {
         e.preventDefault();
         let userComment = commentRef.current.value;
-        console.log({ userComment });
+        // console.log({ userComment });
         let newMovie = { ...props.chosenM, userComment };
         //  let newMovie = { ...props.chosenM, comment: userComment}
         props.updateMovie(newMovie, props.chosenM.id);
-console.log({newMovie})
+// console.log({newMovie})
     }
 
     async function handleAddFav(e, movie) {
         e.preventDefault();
-console.log({movie})
+// console.log({movie})
         let url = `https://movie-js-02.herokuapp.com/addMovie`;
         let data = {
             id: movie.id,

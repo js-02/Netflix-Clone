@@ -31,7 +31,7 @@ export default function Movie(element) {
         </Card.Body>
       </Card>
 
-      {console.log({chosenM})}
+      {/* {console.log({chosenM})} */}
       {
 
         chosenM && <ModalMovie show={show} handleClose={handleClose} chosenM={chosenM} updateMovie={element.updateMovie}/>
