@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Navbar from './Navbar';
+import Button from "react-bootstrap/Button";
 
 export default function FavList() {
   const [favMovie, setFavMovie] = useState();
 
   async function getFavMovie() {
-      let url = `https://movie-js-02.herokuapp.com/favMovie`
+      let url = `https://movie-js-02.herokuapp.com/getMovies`
       let response = await fetch(url, {
           method: 'GET'
       });
@@ -16,7 +17,7 @@ export default function FavList() {
   }
 
   async function handleDelete(id) {
-      let url = `https://movie-js-02.herokuapp.com/deletefavMovie/?id=${id}`;
+      let url = `https://movie-js-02.herokuapp.com/DELETE/:id=${id}`;
       let response = await fetch(url, {
           method: 'DELETE',
       })
@@ -31,10 +32,12 @@ export default function FavList() {
     getFavMovie();
   }, []);
   return (
-
+   
     
       <>
+       {console.log({favMovie})}
       <Navbar />
+
           <h1>Favourite Movie Page</h1>
           {
               favMovie && favMovie.map((favMovie) => {

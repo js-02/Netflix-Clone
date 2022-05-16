@@ -9,25 +9,29 @@ export default function ModalMovie(props) {
     function handleComment(e) {
         e.preventDefault();
         let userComment = commentRef.current.value;
-        console.log({ userComment });
+        // console.log({ userComment });
         let newMovie = { ...props.chosenM, userComment };
-        // let newMovie = { ...props.chosenM, comment: userComment}
-        props.updateRecipe(newMovie, props.chosenM.id);
-
+        //  let newMovie = { ...props.chosenM, comment: userComment}
+        props.updateMovie(newMovie, props.chosenM.id);
+// console.log({newMovie})
     }
 
     async function handleAddFav(e, movie) {
         e.preventDefault();
-
-        let url = `https://movie-js-02.herokuapp.com/handelGet`;
+// console.log({movie})
+        let url = `https://movie-js-02.herokuapp.com/addMovie`;
         let data = {
-            name: movie.title,
-            time: movie.release_date,
-            summary: movie.overview,
+            id: movie.id,
+            title: movie.title,
+            overview: movie.overview,
             image: movie.poster_path,
             comment: movie.comment
           }
-
+        //   id INT,
+        //   title varchar(225),
+        //   overview varchar(225),
+        //   img varchar(225),
+        //   comment varchar(225)
         let response = await fetch(url, {
             method: 'POST',
             headers: {

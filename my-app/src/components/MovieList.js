@@ -8,6 +8,7 @@ export default function MovieList(props) {
         return (
           <>
           <div>
+           
           <Movie key={element.id} movie={element} updateMovie={props.updateMovie} />
           </div>
             
