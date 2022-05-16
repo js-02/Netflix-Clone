@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(18rem, 1fr))', backgroundColor: '#413F42' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(18rem, 1fr))', backgroundColor: 'white' }}>
         <h1>Movie</h1>
         {/* {
           (movies.length > 0) && <MovieList movies={movies} />

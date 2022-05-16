@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Navbar from './Navbar';
+import Button from "react-bootstrap/Button";
 
 export default function FavList() {
   const [favMovie, setFavMovie] = useState();
