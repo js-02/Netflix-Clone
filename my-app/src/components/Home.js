@@ -10,16 +10,29 @@ export default function Home() {
   const [movies, setMovie] = useState([]);
 
   async function getMovie() {
-    let url = "https://movie-js-02.herokuapp.com/trending";
-    let response = await fetch(url);
-    let movieInfo = await response.json();
-    setMovie(movieInfo);
+    let url = "http://movie-js-02.herokuapp.com/trending";
+   
+    let response = await fetch(url, {
+        method: 'GET',
+        
+        headers: {
+          // "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Referrer-Policy": "same-origin"
+        },
+        
+    });
+
+    let movieData = await response.json();
+    setMovie(movieData)
   }
 
   function updateMovie(newMovie, id) {
+    console.log("length = ",movies.length)
     let updatedMovie = movies.map((movie) => {
-        if (movie.id === id) {
+        if (movie.id == id) {
           movie.comment = newMovie.userComment;
+          console.log("update = "+movie.comment)
             return movie;
         } else {
             return movie;
